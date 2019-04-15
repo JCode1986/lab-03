@@ -1,0 +1,52 @@
+img {
+  width: 250px;
+  height: 200px;
+}
+
+#footer {
+  text-align: center;
+  padding: 20px;
+  width: 1503px;
+}
+
+header {
+  text-align: center;
+}
+
+#select_name {
+  text-align: center;
+  padding: 25px;
+}
+
+P {
+  width: 250px;
+  text-align: center;
+}
+
+h2 {
+  width: 250px;
+  text-align: center;
+}
+
+.select_name {
+  text-align: center;
+  margin: 15px;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+#photo-template {
+  width: 0;
+}
+
+.card {
+  padding: 25px;
+}
+
+body {
+  background-color: cyan;
+}
