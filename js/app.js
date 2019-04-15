@@ -39,7 +39,7 @@ const get_creature_data = data => {
 //filter after clicking keyword
 
 $(document).ready(() => {
-  get_creature_data('../data/page-1.json');
+  get_creature_data('data/page-1.json');
   $('select').on('change', function() {
     let select_value = $(this).val();
     $('.card').hide();
@@ -61,10 +61,10 @@ $(document).ready(() => {
     $('select').empty();
     if (event.target.textContent === 'page-1') { 
       //load page 1
-      get_creature_data('../data/page-1.json');
+      get_creature_data('data/page-1.json');
     } else {
       //load page 2
-      get_creature_data('../data/page-2.json');
+      get_creature_data('data/page-2.json');
     } 
   })
 });
