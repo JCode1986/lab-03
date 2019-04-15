@@ -49,4 +49,22 @@ $(document).ready(() => {
     chosen.show();
     $('.card').css("margin-left", "auto").css("margin-right", "auto");
   });
+
+  // When a user clicks on page1 or page2 button.
+  $('header').on('click', 'button', function(event){
+
+    // Empty out creatures in html
+    $('main').empty();
+    // Empty out array of creatures.
+    all_creatures = [];
+    // Empty out drop down select of creatures
+    $('select').empty();
+    if (event.target.textContent === 'page-1') { 
+      //load page 1
+      get_creature_data('../data/page-1.json');
+    } else {
+      //load page 2
+      get_creature_data('../data/page-2.json');
+    } 
+  })
 });
