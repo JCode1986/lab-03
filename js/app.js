@@ -31,7 +31,7 @@ Creature.prototype.make_option = function(){
 const get_creature_data = data => {
   $.get(`${data}`, 'json').then(data => {
     data.forEach(val => all_creatures.push(new Creature(val)));
-    all_creatures.sort(function(a,b) {
+    all_creatures.sort(function(a,b) { //sort horns
       return a.horns - b.horns;
     })
     all_creatures.forEach(creature => {creature.render()});
@@ -71,5 +71,3 @@ $(document).ready(() => {
     }
   })
 });
-
-
