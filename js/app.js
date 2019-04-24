@@ -23,7 +23,7 @@ Creature.prototype.render = function(){
 
 Creature.prototype.make_option = function(){
   if ($(`option[value=${this.keyword}]`).length) return;
-  
+
   const new_html = creature_option_template(this);
   $('select').append(new_html);
 }
@@ -31,6 +31,9 @@ Creature.prototype.make_option = function(){
 const get_creature_data = data => {
   $.get(`${data}`, 'json').then(data => {
     data.forEach(val => all_creatures.push(new Creature(val)));
+    all_creatures.sort(function(a,b) { //sort horns
+      return a.horns - b.horns;
+    })
     all_creatures.forEach(creature => {creature.render()});
     all_creatures.forEach(creature => {creature.make_option()})
   })
@@ -47,7 +50,7 @@ $(document).ready(() => {
       return $(item).attr('data-keyword') === select_value; //condition
     });
     chosen.show();
-    $('.card').css("margin-left", "auto").css("margin-right", "auto");
+    $('.card').css('margin-left', 'auto').css('margin-right', 'auto');
   });
 
   // When a user clicks on page1 or page2 button.
@@ -59,12 +62,12 @@ $(document).ready(() => {
     all_creatures = [];
     // Empty out drop down select of creatures
     $('select').empty();
-    if (event.target.textContent === 'page-1') { 
+    if (event.target.textContent === 'page-1') {
       //load page 1
       get_creature_data('data/page-1.json');
     } else {
       //load page 2
       get_creature_data('data/page-2.json');
-    } 
+    }
   })
 });
