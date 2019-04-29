@@ -1,4 +1,15 @@
 'use strict';
+/*
+broken image link.
+
+  {
+    "image_url": "https://s25878.pcdn.co/wp-content/uploads/2017/01/88.jpeg",
+    "title": "Narwhal swimming",
+    "description": "A narwhal swimming with the light shining through the water",
+    "keyword": "narwhal",
+    "horns": 1
+  },
+*/
 
 let all_creatures = [];
 
@@ -31,9 +42,13 @@ Creature.prototype.make_option = function(){
 const get_creature_data = data => {
   $.get(`${data}`, 'json').then(data => {
     data.forEach(val => all_creatures.push(new Creature(val)));
-    all_creatures.forEach(creature => {creature.render()});
-    all_creatures.forEach(creature => {creature.make_option()})
+    render_data();
   })
+}
+
+const render_data = () => {
+  all_creatures.forEach(creature => {creature.render()});
+  all_creatures.forEach(creature => {creature.make_option()});
 }
 
 //filter after clicking keyword
@@ -51,7 +66,7 @@ $(document).ready(() => {
   });
 
   // When a user clicks on page1 or page2 button.
-  $('header').on('click', 'button', function(event){
+  $('header').on('click', '.page_button', function(event){
 
     // Empty out creatures in html
     $('main').empty();
@@ -67,12 +82,28 @@ $(document).ready(() => {
       get_creature_data('data/page-2.json');
     }
   })
-});
 
-
-$('#sort').click(function() {
-  all_creatures.sort(function(a,b) { //sort horns
-    return a.horns - b.horns;
-  })
+  $('#sort_horn').on('click', function() {
+    all_creatures.sort(function(a, b) { //sort horns
+      return a.horns - b.horns;
+    })
+    $('main').empty();
+    render_data();
+  });
+  
+  $('#sort_alphabetically').on('click', function() {
+    all_creatures.sort(function(a,b) { //sort title
+      let creatureNameA = a.title.toUpperCase();
+      let creatureNameB = b.title.toUpperCase();
+      if (creatureNameA < creatureNameB)
+        return -1;
+      if (creatureNameA > creatureNameB)
+        return 1;
+        
+      return 0;
+    })
+    $('main').empty();
+    render_data();
+  });
 });
 
