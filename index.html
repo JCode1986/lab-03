@@ -17,8 +17,10 @@
   <script id="creature-option-template" type="text/x-handlebars-template">
     <option value="{{keyword}}">{{keyword}}</option>
   </script>
-
+  <link rel="stylesheet" href="css/reset.css">
+   <link rel="stylesheet" href="css/base.css">
    <link rel="stylesheet" href="css/layouts.css">
+   <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
  </head>
  <body>
    <header>
@@ -26,9 +28,13 @@
       <select>
         <option value="default">Filter by Keyword</option>
       </select>
-        <button>page-1</button>
-        <button>page-2</button>
+        <button class="page_button">page-1</button>
+        <button class="page_button">page-2</button>
       <div id = "select_name">Select Creature Type</div>
+      <p>
+        <button id="sort_horn">Sort by Horn Numbers</button>
+        <button id="sort_alphabetically">Sort Alphabetically</button>
+      </p>
   </header>
    <main>
      <section id="photo-template">

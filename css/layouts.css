@@ -1,31 +1,12 @@
-img {
-  width: 250px;
-  height: 200px;
-}
-
 #footer {
   text-align: center;
   padding: 20px;
   width: 1503px;
 }
 
-header {
-  text-align: center;
-}
-
 #select_name {
   text-align: center;
   padding: 20px;
-}
-
-P {
-  width: 250px;
-  text-align: center;
-}
-
-h2 {
-  width: 250px;
-  text-align: center;
 }
 
 .select_name {
@@ -48,6 +29,15 @@ main {
   padding: 25px;
 }
 
-body {
-  background-color: cyan;
+#select_name {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+select {
+  font-family: 'Gugi', cursive;
+}
+
+button {
+  font-family: 'Gugi', cursive;
 }
