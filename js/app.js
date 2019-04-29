@@ -1,15 +1,4 @@
 'use strict';
-/*
-broken image link.
-
-  {
-    "image_url": "https://s25878.pcdn.co/wp-content/uploads/2017/01/88.jpeg",
-    "title": "Narwhal swimming",
-    "description": "A narwhal swimming with the light shining through the water",
-    "keyword": "narwhal",
-    "horns": 1
-  },
-*/
 
 let all_creatures = [];
 
